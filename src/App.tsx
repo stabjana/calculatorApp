@@ -1,19 +1,13 @@
 
-import { Container, Paper, styled } from '@mui/material'
+import Calculator from "./Calculator";
 import './App.css'
 
-function App() {
-  const CalculatorBase = styled(Paper)(({theme})=> ({
-    padding: theme.spacing(2),
-    marginTop: theme.spacing(4),
-    borderRadius: 15
-  }))
 
+
+function App() {
 
   return (
-    <Container maxWidth="sm">
-      <CalculatorBase elevation={3}>Hello World</CalculatorBase>
-    </Container>
+    <Calculator />
   )
 }
 

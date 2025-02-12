@@ -1,6 +1,6 @@
 # Calculator App
 
-✨ :rainbow: ✨
+:sparkles: :rainbow: :sparkles:
 
 using React(vite), Typescript, MUI
 
@@ -8,4 +8,4 @@ this calculator can calculate the basic operations :blush:
 
 it is a practice for my Typescript course
 
-✨ :rainbow: :✨
+:sparkles: :rainbow: :sparkles:
