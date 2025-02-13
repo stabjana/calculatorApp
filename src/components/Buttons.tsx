@@ -15,8 +15,7 @@ interface InputProps {
         <div className='button-row'> 
           <button className='top' onClick={onPress}>C</button>
           <button className='top' onClick={onPress}>+/-</button>
-          <button className='top' onClick={onPress}>%</button>
-          <button className='last-button' onClick={onPress}>÷</button>
+          <button className='last-button' onClick={onPress}>/</button>
         </div>
         <div className='button-row'>
           <button onClick={onPress}>7</button>

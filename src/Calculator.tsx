@@ -26,13 +26,29 @@ export default function Calculator() {
         calculateResult(value);
         break;
       case "=":
+        calculateResult(value);
+        setIsNum(true); // set back to beginning state
+        setOperation(null);
         break;
-      case ".":
+      case "C":
+        setMemoryNum(0);
+        setDisplayNum("");
+        setIsNum(true);
+        setOperation(null);
+        break;
+        case "+/-":
+          if(displayNum){
+            setDisplayNum((parseFloat(displayNum)*(-1)).toString());
+          }
+         break;
       default:
         if (!isNum) {
           setDisplayNum(value);
           setIsNum(true);
         } else if (isNum){
+          if(displayNum.includes('.') && value === '.'){
+            break;
+          }
           setDisplayNum(displayNum + value);
         }
     }
@@ -46,8 +62,7 @@ export default function Calculator() {
     }
       setIsNum(false);
       if (operation) {
-        // const result: number = memoryNum + parseFloat(displayNum);
-       const result = eval(memoryNum.toString() + value + displayNum);
+       const result = eval(memoryNum.toString() + operation + displayNum);
        console.log(result);
         setMemoryNum(result);
         setDisplayNum(result.toString()); // wenn 3 gedrückt ist dann durch neue zahl ersetzen nach operation
@@ -55,7 +70,7 @@ export default function Calculator() {
         setMemoryNum(+displayNum);
         console.log('hier');
       }
-      setOperation(value);
+      setOperation(value); // bei = keine 
   }
 
   return (
