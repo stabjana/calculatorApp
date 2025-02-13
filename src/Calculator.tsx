@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Buttons from "./components/Buttons";
-import Input from "./components/Input";
+import Display from "./components/Display";
 import "./index.css";
 
 export default function Calculator() {
@@ -11,9 +11,9 @@ export default function Calculator() {
   const [operation, setOperation] = useState<string | null>(null);
 
   function handleButtonPress(value: string): void {
-    // a number // operation // second number in display // calc || error
+    // depending which button is pressed
     switch (value) {
-      case "+": // nochmal + verdoppelt zahl
+      case "+":
       calculateResult(value);
         break;
       case "-":
@@ -27,7 +27,7 @@ export default function Calculator() {
         break;
       case "=":
         calculateResult(value);
-        setIsNum(true); // set back to beginning state
+        setIsNum(true); // sets it all back to initial state
         setOperation(null);
         break;
       case "C":
@@ -56,26 +56,24 @@ export default function Calculator() {
 
   const calculateResult = (value: string)=>{
     if(!isNum){
-      // durch neues Zeichen ersetzen
+      // replace with new character
       setOperation(value);
       return;
     }
       setIsNum(false);
       if (operation) {
        const result = eval(memoryNum.toString() + operation + displayNum);
-       console.log(result);
         setMemoryNum(result);
-        setDisplayNum(result.toString()); // wenn 3 gedrückt ist dann durch neue zahl ersetzen nach operation
+        setDisplayNum(result.toString());
       } else {
         setMemoryNum(+displayNum);
-        console.log('hier');
       }
-      setOperation(value); // bei = keine 
+      setOperation(value);
   }
 
   return (
     <div className="calculator-container">
-      <Input error={hasError} input={displayNum} />
+      <Display error={hasError} display={displayNum} />
       <Buttons handleOnPress={handleButtonPress} />
     </div>
   );

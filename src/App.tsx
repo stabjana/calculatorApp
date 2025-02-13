@@ -1,14 +1,11 @@
-
 import Calculator from "./Calculator";
-import './App.css'
-
-
+import './App.css';
 
 function App() {
 
   return (
     <Calculator />
-  )
+  );
 }
 
-export default App
+export default App;
