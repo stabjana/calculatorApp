@@ -22,7 +22,7 @@ interface InputProps {
           <button onClick={onPress}>7</button>
           <button onClick={onPress}>8</button>
           <button onClick={onPress}>9</button>
-          <button className='last-button' onClick={onPress}>✕</button>
+          <button className='last-button' onClick={onPress}>*</button>
         </div>
         <div className='button-row'>
           <button onClick={onPress}>4</button>

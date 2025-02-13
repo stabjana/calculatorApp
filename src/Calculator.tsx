@@ -14,21 +14,16 @@ export default function Calculator() {
     // a number // operation // second number in display // calc || error
     switch (value) {
       case "+": // nochmal + verdoppelt zahl
-        setIsNum(false);
-        if (operation) {
-          const result: number = memoryNum + parseFloat(displayNum);
-          setMemoryNum(result);
-          setDisplayNum(result.toString()); // wenn 3 gedrückt ist dann durch neue zahl ersetzen nach operation
-        } else {
-          setMemoryNum(+displayNum);
-        }
-        setOperation(value);
+      calculateResult(value);
         break;
       case "-":
+        calculateResult(value);
         break;
       case "*":
+        calculateResult(value);
         break;
       case "/":
+        calculateResult(value);
         break;
       case "=":
         break;
@@ -41,6 +36,26 @@ export default function Calculator() {
           setDisplayNum(displayNum + value);
         }
     }
+  }
+
+  const calculateResult = (value: string)=>{
+    if(!isNum){
+      // durch neues Zeichen ersetzen
+      setOperation(value);
+      return;
+    }
+      setIsNum(false);
+      if (operation) {
+        // const result: number = memoryNum + parseFloat(displayNum);
+       const result = eval(memoryNum.toString() + value + displayNum);
+       console.log(result);
+        setMemoryNum(result);
+        setDisplayNum(result.toString()); // wenn 3 gedrückt ist dann durch neue zahl ersetzen nach operation
+      } else {
+        setMemoryNum(+displayNum);
+        console.log('hier');
+      }
+      setOperation(value);
   }
 
   return (
