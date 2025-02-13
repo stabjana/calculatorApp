@@ -7,7 +7,6 @@ export default function Calculator() {
   const [memoryNum, setMemoryNum] = useState<number>(0);
   const [displayNum, setDisplayNum] = useState<string>("");
   const [isNum, setIsNum] = useState<boolean>(true);
-  const [hasError, setHasError] = useState<boolean>(false);
   const [operation, setOperation] = useState<string | null>(null);
 
   function handleButtonPress(value: string): void {
@@ -73,7 +72,7 @@ export default function Calculator() {
 
   return (
     <div className="calculator-container">
-      <Display error={hasError} display={displayNum} />
+      <Display display={displayNum} />
       <Buttons handleOnPress={handleButtonPress} />
     </div>
   );

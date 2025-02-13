@@ -2,15 +2,15 @@ import "../index.css";
 
 interface DisplayProps {
   display: string;
-  error: boolean;
 }
 
-export default function Display({ display, error }: DisplayProps) {
+export default function Display({ display }: DisplayProps) {
+  let niceDisplay = display ? display.slice(0,14) : "0"; // limit to 14 numbers on the display
+  niceDisplay = parseFloat(niceDisplay).toString();  // and cut unneccessary zeros
 
-  //parseFloat(display); // toDo: limit to 14 numbers on the display
   return (
     <div className="display-container">
-      {error ? <h1>Error</h1> : <h1>{display ? display : "0"}</h1>}
+      {<h1>{niceDisplay}</h1>} 
     </div>
   );
 }
