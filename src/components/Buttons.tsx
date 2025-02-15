@@ -5,9 +5,9 @@ interface InputProps {
   }
   
   export default function Buttons({ handleOnPress }: InputProps) {
-    function onPress(event) {
-      const value: string = event.target.innerText
-      handleOnPress(value)
+    function onPress(event: React.MouseEvent<HTMLButtonElement>) {
+      const value: string = (event.currentTarget as HTMLButtonElement).innerText;
+      handleOnPress(value);
     }
   
     return (
