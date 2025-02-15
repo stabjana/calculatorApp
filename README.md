@@ -12,7 +12,12 @@ it is a practice for my Typescript course
 
 ## Run the app
 
-run in your shell:
+visit the website:  
+https://main.d36lbqdywxa1yu.amplifyapp.com/
+
+**or**
+
+after cloning the repository run in your shell:
 
 ```shell
 npm i
